@@ -1,6 +1,8 @@
 const VoiceResponse = require('twilio').twiml.VoiceResponse
 const app = require('express')()
 
+const port = process.env.PORT || 3000
+
 const response = new VoiceResponse()
 response.say({
     voice: 'alice',
@@ -15,6 +17,6 @@ app.get('/', (req, res) => {
     res.send(response.toString())
 })
 
-app.listen(3000, () => {
-    console.log('Server is up at port 3000')
+app.listen(port, () => {
+    console.log(`Server is up at port ${port}`)
 })
